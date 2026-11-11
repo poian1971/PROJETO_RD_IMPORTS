@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R & D Imports - Administração</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Logo na Esquerda -->
+        <a href="index.html" class="logo-container">
+            <img src="images/logo_rd_imports.jpg" alt="R & D Imports Logo" class="brand-logo-img">
+        </a>
+
+        <!-- Botão Hambúrguer na Direita -->
+        <button class="hamburger-btn" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Lista do Menu (Ganha a classe .nav-links) -->
+        <nav>
+            <ul id="nav-list" class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="produtos.html" class="nav-link">Produtos</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="https://www.instagram.com/rdimportscaxias/" target="_blank" class="instagram-nav-btn"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Painel Administrativo</h2>
+        <p class="section-subtitle">Área restrita para gestão de produtos e serviços da loja</p>
+
+        <!-- Caixa de Login -->
+        <!-- Caixa de Login -->
+        <div class="admin-box" id="admin-login-box">
+            <h3 style="margin-bottom: 15px; color: #111827;"><i class="fa-solid fa-lock"></i> Autenticação</h3>
+
+            <form onsubmit="fazerLogin(event)">
+                <!-- Campo de E-mail -->
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>E-mail do Administrador</label>
+                    <input type="email" id="admin-email" class="form-control" placeholder="Digite o seu e-mail"
+                        required>
+                </div>
+
+                <!-- Campo de Palavra-passe -->
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Palavra-passe</label>
+                    <input type="password" id="admin-password" class="form-control"
+                        placeholder="Digite a sua palavra-passe" required>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">Entrar no Painel</button>
+            </form>
+        </div>
+
+        <!-- Painel Principal (Dashboard) -->
+        <div class="admin-dashboard" id="admin-dashboard-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="color: #111827;"><i class="fa-solid fa-user-shield"></i> Painel de Gestão - R & D Imports
+                </h3>
+                <button class="btn btn-outline" onclick="fazerLogout()"
+                    style="padding: 6px 14px; font-size: 12px;">Sair</button>
+            </div>
+
+            <!-- SELETOR DE MÓDULOS (CELULARES OU SERVIÇOS) -->
+            <div
+                style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px;">
+                <button class="btn" id="tab-btn-produtos" onclick="alternarModuloAdmin('produtos')"
+                    style="padding: 10px 20px;">
+                    <i class="fa-solid fa-mobile-screen-button"></i> Gerenciar Celulares
+                </button>
+                <button class="btn btn-outline" id="tab-btn-servicos" onclick="alternarModuloAdmin('servicos')"
+                    style="padding: 10px 20px;">
+                    <i class="fa-solid fa-wrench"></i> Gerenciar Serviços
+                </button>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- MÓDULO 1: GERENCIAR CELULARES                                -->
+            <!-- ============================================================ -->
+            <div id="modulo-admin-produtos">
+                <!-- Gerenciar Celulares Cadastrados -->
+                <div class="admin-section-box">
+                    <h4 style="margin-bottom: 15px; color: #111827;">Celulares Cadastrados</h4>
+                    <p style="font-size: 13px; color: #6b7280; margin-bottom: 15px;">Visualize, edite o preço/foto ou
+                        remova os produtos salvos na nuvem.</p>
+                    <div id="admin-produtos-list"
+                        style="display: flex; flex-direction: column; gap: 10px; max-height: 350px; overflow-y: auto; padding-right: 5px;">
+                        <!-- Preenchido via JS -->
+                    </div>
+                </div>
+
+                <!-- Formulário de Cadastro e Edição de Celulares -->
+                <div class="admin-section-box">
+                    <h4 style="margin-bottom: 15px; color: #111827;" id="form-titulo">Cadastrar Novo Celular</h4>
+
+                    <input type="hidden" id="prod-id-edicao">
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div class="form-group">
+                            <label>Nome do Aparelho</label>
+                            <input type="text" id="new-prod-name" class="form-control"
+                                placeholder="Ex: iPhone 16 Pro Max 256GB">
+                        </div>
+                        <div class="form-group">
+                            <label>Preço (R$)</label>
+                            <input type="text" id="new-prod-price" class="form-control" placeholder="Ex: 6.890,00">
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria</label>
+                            <select id="new-prod-category" class="form-control">
+                                <option value="seminovo">Seminovo</option>
+                                <option value="promocao">Promoção</option>
+                                <option value="lacrado">Lacrado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div class="form-group">
+                            <label>URL da Foto (Google Drive Convertido)</label>
+                            <input type="text" id="new-prod-img" class="form-control"
+                                placeholder="https://lh3.googleusercontent.com/d/CÓDIGO">
+                        </div>
+                        <div class="form-group">
+                            <label>Link Mercado Pago (Opcional)</label>
+                            <input type="url" id="new-prod-link-mp" class="form-control"
+                                placeholder="https://mpago.la/...">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Descrição Curta</label>
+                        <input type="text" id="new-prod-desc" class="form-control"
+                            placeholder="Ex: Aparelho impecável, saúde da bateria 95%, garantia.">
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn" id="btn-salvar-prod" onclick="adicionarProduto()">Salvar Celular</button>
+                        <button class="btn btn-outline" id="btn-cancelar-edicao" style="display: none;"
+                            onclick="limparFormularioAdmin()">Cancelar Edição</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- MÓDULO 2: GERENCIAR SERVIÇOS                                 -->
+            <!-- ============================================================ -->
+            <div id="modulo-admin-servicos" style="display: none;">
+                <!-- Lista de Serviços -->
+                <div class="admin-section-box">
+                    <h4 style="margin-bottom: 15px; color: #111827;">Tabela de Serviços Cadastrados</h4>
+                    <p style="font-size: 13px; color: #6b7280; margin-bottom: 15px;">Altere o valor diretamente na linha
+                        e clique em Salvar Rápido, ou clique em Editar para alterar a descrição.</p>
+                    <div id="admin-servicos-list"
+                        style="display: flex; flex-direction: column; gap: 10px; max-height: 350px; overflow-y: auto; padding-right: 5px;">
+                        <!-- Preenchido via JS -->
+                    </div>
+                </div>
+
+                <!-- Formulário de Cadastro/Edição de Serviços -->
+                <div class="admin-section-box">
+                    <h4 style="margin-bottom: 15px; color: #111827;" id="form-titulo-serv">Cadastrar Novo Serviço</h4>
+
+                    <input type="hidden" id="serv-id-edicao">
+
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div class="form-group">
+                            <label>Nome do Serviço</label>
+                            <input type="text" id="new-serv-name" class="form-control"
+                                placeholder="Ex: Troca de Telas e Displays">
+                        </div>
+                        <div class="form-group">
+                            <label>Valor / Preço (R$)</label>
+                            <input type="text" id="new-serv-price" class="form-control"
+                                placeholder="Ex: 150,00 ou Consulte valores">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label>Descrição do Serviço</label>
+                        <input type="text" id="new-serv-desc" class="form-control"
+                            placeholder="Ex: Substituição por display original com garantia.">
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn" id="btn-salvar-serv" onclick="salvarServico()">Salvar Serviço</button>
+                        <button class="btn btn-outline" id="btn-cancelar-serv" style="display: none;"
+                            onclick="limparFormularioServico()">Cancelar Edição</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 R & D Imports - Atacado e Varejo. Todos os direitos reservados.</p>
+        <p style="font-size: 11px; margin-top: 5px;">Rua Pinheiro Machado 2810 - São Pelegrino / Caxias do Sul - RS</p>
+    </footer>
+
+    <!-- Bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+
+    <!-- AUTENTICAÇÃO DA SENHA: -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+
+</html>

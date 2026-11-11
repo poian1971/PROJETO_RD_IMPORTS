@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R & D Imports - Contato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Logo na Esquerda -->
+        <a href="index.html" class="logo-container">
+            <img src="images/logo_rd_imports.jpg" alt="R & D Imports Logo" class="brand-logo-img">
+        </a>
+
+        <!-- Botão Hambúrguer na Direita -->
+        <button class="hamburger-btn" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Lista do Menu (Ganha a classe .nav-links) -->
+        <nav>
+            <ul id="nav-list" class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="produtos.html" class="nav-link">Produtos</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="https://www.instagram.com/rdimportscaxias/" target="_blank" class="instagram-nav-btn"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Fale Conosco</h2>
+        <p class="section-subtitle">Estamos localizados no coração de Caxias do Sul</p>
+
+        <div class="contact-grid">
+            <div class="contact-info-box">
+                <!-- 1. Endereço / Google Maps -->
+                <div class="contact-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Google_Maps_icon_%282015-2020%29.svg"
+                        alt="Google Maps" class="official-contact-icon">
+                    <div>
+                        <h4>Endereço da Loja</h4>
+                        <p>Rua Pinheiro Machado 2810 - São Pelegrino<br>Caxias do Sul / RS</p>
+                    </div>
+                </div>
+
+                <!-- 2. WhatsApp -->
+                <div class="contact-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+                        class="official-contact-icon">
+                    <div>
+                        <h4>WhatsApp Vendas & Suporte</h4>
+                        <p>(54) 99258.4574 / (54) 3419.9302</p>
+                    </div>
+                </div>
+
+                <!-- 3. Instagram -->
+                <div class="contact-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                        alt="Instagram" class="official-contact-icon">
+                    <div>
+                        <h4>Instagram Oficial</h4>
+                        <p>@rdimportscaxias</p>
+                    </div>
+                </div>
+            </div>
+
+            <form onsubmit="enviarMensagem(event)" class="contact-form">
+                <div class="form-group">
+                    <label>Seu Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Telefone / WhatsApp</label>
+                    <input type="text" id="telefone" class="form-control" placeholder="Seu telefone com DDD">
+                </div>
+
+                <div class="form-group">
+                    <label>Mensagem / Aparelho desejado</label>
+                    <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua dúvida ou aparelho"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.890456731619!2d-51.190889295153085!3d-29.167295665517877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ea32881cea155%3A0x6f0de98b72d4b125!2sR.%20Pinheiro%20Machado%2C%202810%20-%20S%C3%A3o%20Pelegrino%2C%20Caxias%20do%20Sul%20-%20RS%2C%2095020-172!5e1!3m2!1spt-BR!2sbr!4v1794348711593!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 R & D Imports - Atacado e Varejo. Todos os direitos reservados.</p>
+        <p style="font-size: 11px; margin-top: 5px;">Rua Pinheiro Machado 2810 - São Pelegrino / Caxias do Sul - RS</p>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP (FIXO) -->
+    <a href="https://wa.me/5554981166189?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+        target="_blank" class="whatsapp-float-btn" aria-label="Falar no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35"
+            height="35">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

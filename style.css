@@ -1,0 +1,884 @@
+/* ============================================================
+   1. VARIÁVEIS DE CORES & RESET GLOBAL
+   ============================================================
+   Define as cores padrões da identidade visual da R & D Imports 
+   e limpa as margens padrão do navegador.
+   ============================================================ */
+:root {
+    --card-yellow: #f3c614;        /* Amarelo/ouro principal da marca */
+    --card-yellow-hover: #d4ac0d;  /* Tom amarelo escuro para efeitos de passar o mouse (hover) */
+    --text-dark: #111827;         /* Texto escuro principal (Cinza quase preto) */
+    --text-gray: #4b5563;         /* Texto secundário para descrições (Cinza médio) */
+}
+
+/* Reset universal de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /* Rola a página suavemente ao clicar em links/botões */
+}
+
+body {
+    background: var(--card-yellow);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* ============================================================
+   2. HEADER & BARRA DE NAVEGAÇÃO SUPERIOR (DESKTOP)
+   ============================================================
+   Estilização do topo fixo com logo, links de páginas, Instagram
+   e botão de administração.
+   ============================================================ */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000000;
+    border-bottom: 3px solid var(--card-yellow);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Container do Logotipo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: #000000;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Imagem da Logomarca */
+.brand-logo-img {
+    height: 88px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Botão Hambúrguer (Oculto por padrão no Computador/Desktop) */
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--card-yellow);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.hamburger-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Container <nav> no Desktop */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Lista de Links do Menu */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Links Individuais da Navegação */
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse ou link ativo */
+nav ul li a:hover, 
+nav ul li a.active {
+    color: var(--card-yellow);
+}
+
+/* Botão Admin na Barra */
+.admin-nav-btn {
+    background: var(--card-yellow);
+    color: #000000 !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.admin-nav-btn:hover {
+    background: var(--card-yellow-hover);
+}
+
+/* Botão com Gradiente do Instagram */
+.instagram-nav-btn {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.instagram-nav-btn:hover {
+    opacity: 0.9;
+}
+
+/* ============================================================
+   3. ESTRUTURA GERAL DA PÁGINA & SEÇÕES
+   ============================================================
+   Configurações dos blocos principais de conteúdo da loja.
+   ============================================================ */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 130px 20px 60px; /* Padding superior garante espaço para o header fixo */
+}
+
+/* Animação suave para transição entre seções */
+.section {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título das Seções */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111827;
+    border-left: 4px solid #111827;
+    padding-left: 12px;
+}
+
+/* Subtítulo das Seções */
+.section-subtitle {
+    color: #374151;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* ============================================================
+   4. HERO SECTION (BANNER DA HOME)
+   ============================================================
+   Caixa principal de destaque na tela inicial.
+   ============================================================ */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 70px 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 45px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.hero h1 span {
+    color: #b45309;
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--text-gray);
+    max-width: 700px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilo padrão para Botões da Loja */
+.btn {
+    background: #111827;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+/* Botão Estilo Contorno (Outline) */
+.btn-outline {
+    background: transparent;
+    color: #111827;
+    border: 2px solid #111827;
+}
+
+.btn-outline:hover {
+    background: #111827;
+    color: #ffffff;
+}
+
+/* ============================================================
+   5. FILTROS DE CATEGORIA DE PRODUTOS
+   ============================================================
+   Botões de filtro (Todos, Seminovos, Promoção, Lacrados).
+   ============================================================ */
+.filter-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: #ffffff;
+    color: #111827;
+    border: 2px solid #111827;
+    padding: 8px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background: #111827;
+    color: var(--card-yellow);
+}
+
+/* ============================================================
+   6. GRADE DE PRODUTOS & CARDS (3 COLUNAS NO COMPUTADOR)
+   ============================================================
+   Estrutura dos cartões de exposição dos aparelhos celulares.
+   ============================================================ */
+.grid, 
+.grid-container, 
+#produtos-grid, 
+#destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais no computador */
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0;
+    align-items: stretch;
+}
+
+/* Cartão do Produto */
+.card {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Badges / Etiquetas Flutuantes nos Cards */
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.badge-promocao { background: #dc2626; color: #ffffff; }
+.badge-seminovo { background: #f3c614; color: #000000; }
+.badge-lacrado  { background: #000000; color: #ffffff; border: 1px solid #f3c614; }
+
+/* Imagem do Produto sem Cortes (Formato Proporcional 3:4) */
+.card-img {
+    width: 100%;
+    height: 360px;            /* Altura ideal para proporção 3:4 */
+    object-fit: contain;      /* Garante a foto 100% visível sem cortar pontas */
+    background-color: #f8fafc; /* Fundo levemente acinzentado */
+    padding: 10px;            /* Espaçamento interno */
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Corpo do Card e Textos */
+.card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-content-top {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título do Celular */
+.card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+/* Descrição Curta do Aparelho */
+.card-desc {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+
+/* Rodapé do Card (Preço e Botão Comprar) */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    margin-top: auto;
+}
+
+.price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* ============================================================
+   7. TABELA DE SERVIÇOS
+   ============================================================
+   Estilização da tabela de manutenções e valores estimados.
+   ============================================================ */
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.services-table th, 
+.services-table td {
+    padding: 18px 20px;
+    text-align: left;
+    color: #111827;
+}
+
+.services-table th {
+    background: #111827;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.services-table tr:not(:last-child) td {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* ============================================================
+   8. CONTATO, FORMULÁRIOS & MAPA DA LOJA
+   ============================================================
+   Estrutura da área de localização e formulários de mensagens.
+   ============================================================ */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-info-box, 
+.contact-form, 
+.admin-box, 
+.admin-section-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    color: #111827;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-item i {
+    font-size: 20px;
+    color: #b45309;
+    margin-top: 3px;
+}
+
+.contact-item h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: #111827;
+}
+
+.contact-item p {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* Ajuste padronizado para as imagens oficiais (Google Maps, WhatsApp e Instagram) */
+.official-contact-icon {
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+    margin-top: 2px;
+    transition: transform 0.2s ease;
+}
+
+.contact-item:hover .official-contact-icon {
+    transform: scale(1.1);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #374151;
+}
+
+/* Campos de Entrada de Texto (Inputs) */
+.form-control {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: #111827;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #111827;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.15);
+}
+
+/* Moldura do Mapa Google Embed */
+.map-container {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 350px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ============================================================
+   9. PAINEL DE ADMINISTRAÇÃO (DASHBOARD)
+   ============================================================
+   Estilização dos formulários de login e listas de gerenciamento.
+   ============================================================ */
+.admin-box {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid #111827;
+}
+
+.admin-dashboard {
+    display: none; /* Controlado via JS após login */
+}
+
+.admin-section-box {
+    margin-bottom: 30px;
+}
+
+/* Linha de item individual na lista do painel Admin */
+.admin-prod-row {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+/* ============================================================
+   10. MODAL DE PAGAMENTO (MERCADO PAGO)
+   ============================================================
+   Janela flutuante exibida ao clicar no botão Comprar.
+   ============================================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    color: #111827;
+}
+
+.mp-badge {
+    background: #009ee3;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.close-modal {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+    transition: color 0.3s;
+}
+
+.close-modal:hover { 
+    color: #000000; 
+}
+
+/* ============================================================
+   11. RODAPÉ (FOOTER)
+   ============================================================
+   Rodapé com informações de copyright e endereço físico.
+   ============================================================ */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #111827;
+    font-size: 13px;
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.dev-credits {
+    font-size: 13px;
+    color: #4b5563;
+    margin-top: 4px;
+}
+
+.dev-credits a {
+    color: #111827; /* Cor escura elegante em vez do azul padrão */
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dev-credits a:hover {
+    color: #b45309; /* Fica num tom destacado quando passa o rato por cima */
+}
+
+/* ============================================================
+   BOTÃO FLUTUANTE DO WHATSAPP (FIXO EM TODAS AS TELAS)
+   ============================================================ */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Garante que fique acima de todos os elementos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float-btn img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+/* Efeito ao passar o mouse */
+.whatsapp-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Ajuste de posição para telas de celular */
+@media (max-width: 640px) {
+    .whatsapp-float-btn {
+        bottom: 18px;
+        right: 18px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-float-btn img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+
+
+/* ============================================================
+   12. RESPONSIVIDADE (MEDIA QUERIES)
+   ============================================================
+   Ajustes de layout específicos para Tablets e Smartphones.
+   ============================================================ */
+
+/* TABLETS / DISPLAYS MÉDIOS (Até 1024px) */
+@media (max-width: 1024px) {
+    .grid, 
+    .grid-container, 
+    #produtos-grid, 
+    #destaques-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .card-img {
+        height: 320px;
+    }
+}
+
+/* TELAS MÉDIAS E DISPOSITIVOS INTERMEDIÁRIOS (Até 768px) */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SMARTPHONES / TELAS PEQUENAS (Até 640px) */
+@media (max-width: 640px) {
+    /* 1. Topo (Header) com Logo na Esquerda e Hambúrguer na Extrema Direita */
+    header {
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .brand-logo-img {
+        height: 48px; /* Reduz a altura da logo para não ocupar espaço demais */
+    }
+
+    /* Força o botão Hambúrguer a aparecer na EXTREMA DIREITA */
+    .hamburger-btn {
+        display: block !important;
+        order: 2;
+        margin-left: auto;
+    }
+
+    /* ESCONDE TOTALMENTE A LISTA DO MENU NO MOBILE POR PADRÃO */
+    nav ul, 
+    nav ul.nav-links {
+        display: none !important; /* Impede que Início, Sobre, etc. fiquem visíveis no topo */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        border-bottom: 3px solid var(--card-yellow);
+        padding: 20px 0;
+        gap: 15px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    /* EXIBE O MENU EM COLUNA APENAS QUANDO FOR CLICADO (CLASSE .active) */
+    nav ul.nav-links.active {
+        display: flex !important;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        color: #ffffff;
+    }
+
+    nav ul li a:hover {
+        color: var(--card-yellow);
+    }
+
+    /* Centraliza o botão do Instagram dentro do menu aberto */
+    .instagram-nav-btn {
+        display: inline-flex !important;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    /* 2. Container e Títulos no Mobile */
+    .container {
+        padding: 90px 12px 40px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .section-subtitle {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    /* 3. Grade de Produtos em 1 Coluna */
+    .grid, 
+    .grid-container, 
+    #produtos-grid, 
+    #destaques-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .card-img {
+        height: 300px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 24px;
+    }
+
+    /* 4. Tabela de Serviços Convertida em Cards Empilhados */
+    .services-table, 
+    .services-table tbody, 
+    .services-table tr, 
+    .services-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .services-table thead {
+        display: none;
+    }
+
+    .services-table tr {
+        margin-bottom: 15px;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+    }
+
+    .services-table td {
+        padding: 4px 0;
+        border: none !important;
+        text-align: left !important;
+    }
+
+    .services-table td:last-child {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #b45309;
+        border-top: 1px dashed #e2e8f0 !important;
+        padding-top: 8px;
+    }
+}

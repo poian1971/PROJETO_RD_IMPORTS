@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R & D Imports - Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Logo na Esquerda -->
+        <a href="index.html" class="logo-container">
+            <img src="images/logo_rd_imports.jpg" alt="R & D Imports Logo" class="brand-logo-img">
+        </a>
+
+        <!-- Botão Hambúrguer na Direita -->
+        <button class="hamburger-btn" id="menu-toggle" onclick="toggleMenu()" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Lista do Menu (Ganha a classe .nav-links) -->
+        <nav>
+            <ul id="nav-list" class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="produtos.html" class="nav-link">Produtos</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+                <li><a href="https://www.instagram.com/rdimportscaxias/" target="_blank" class="instagram-nav-btn"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Assistência Técnica & Serviços</h2>
+        <p class="section-subtitle">Soluções rápidas e seguras para o seu smartphone com orçamento pré-definido</p>
+
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th>Serviço Realizado</th>
+                    <th>Descrição Técnica</th>
+                    <th style="text-align: right;">Valor Médio</th>
+                </tr>
+            </thead>
+            <tbody id="services-tbody">
+                <!-- Preenchido via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 R & D Imports - Atacado e Varejo. Todos os direitos reservados.</p>
+        <p style="font-size: 11px; margin-top: 5px;">Rua Pinheiro Machado 2810 - São Pelegrino / Caxias do Sul - RS</p>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP (FIXO) -->
+    <a href="https://wa.me/5554981166189?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+        target="_blank" class="whatsapp-float-btn" aria-label="Falar no WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35"
+            height="35">
+    </a>
+
+    <!-- Bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+
+    <!-- O teu script principal (deve ficar sempre por baixo das bibliotecas) -->
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", renderServicos);
+    </script>
+</body>
+
+</html>
