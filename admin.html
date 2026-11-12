@@ -135,11 +135,6 @@
                             <input type="text" id="new-prod-img" class="form-control"
                                 placeholder="https://lh3.googleusercontent.com/d/CÓDIGO">
                         </div>
-                        <div class="form-group">
-                            <label>Link Mercado Pago (Opcional)</label>
-                            <input type="url" id="new-prod-link-mp" class="form-control"
-                                placeholder="https://mpago.la/...">
-                        </div>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 15px;">
@@ -214,14 +209,15 @@
 
     <!-- Bibliotecas do Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Autenticação de senha -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
 
-    <!-- AUTENTICAÇÃO DA SENHA: -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-
-    <!-- Script Principal -->
+    <!-- O teu script principal (deve ficar sempre por baixo das bibliotecas) -->
     <script src="script.js"></script>
+</body>
 </body>
 
 </html>
