@@ -5,10 +5,14 @@
    e limpa as margens padrão do navegador.
    ============================================================ */
 :root {
-    --card-yellow: #f3c614;        /* Amarelo/ouro principal da marca */
-    --card-yellow-hover: #d4ac0d;  /* Tom amarelo escuro para efeitos de passar o mouse (hover) */
-    --text-dark: #111827;         /* Texto escuro principal (Cinza quase preto) */
-    --text-gray: #4b5563;         /* Texto secundário para descrições (Cinza médio) */
+    --card-yellow: #f3c614;
+    /* Amarelo/ouro principal da marca */
+    --card-yellow-hover: #d4ac0d;
+    /* Tom amarelo escuro para efeitos de passar o mouse (hover) */
+    --text-dark: #111827;
+    /* Texto escuro principal (Cinza quase preto) */
+    --text-gray: #4b5563;
+    /* Texto secundário para descrições (Cinza médio) */
 }
 
 /* Reset universal de margens e padding */
@@ -17,11 +21,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth; /* Rola a página suavemente ao clicar em links/botões */
+    scroll-behavior: smooth;
+    /* Rola a página suavemente ao clicar em links/botões */
 }
 
 body {
-    background: var(--card-yellow);
+    background:
+        linear-gradient(rgba(17, 24, 39, 0.35), rgba(17, 24, 39, 0.45)),
+        url('images/fundo_da_loja.jpeg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-dark);
     min-height: 100vh;
 }
@@ -106,7 +114,7 @@ nav ul li a {
 }
 
 /* Efeito ao passar o mouse ou link ativo */
-nav ul li a:hover, 
+nav ul li a:hover,
 nav ul li a.active {
     color: var(--card-yellow);
 }
@@ -151,7 +159,8 @@ nav ul li a.active {
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 130px 20px 60px; /* Padding superior garante espaço para o header fixo */
+    padding: 130px 20px 60px;
+    /* Padding superior garante espaço para o header fixo */
 }
 
 /* Animação suave para transição entre seções */
@@ -165,8 +174,15 @@ nav ul li a.active {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Título das Seções */
@@ -174,16 +190,18 @@ nav ul li a.active {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 8px;
-    color: #111827;
-    border-left: 4px solid #111827;
+    color: #ffffff;
+    border-left: 4px solid var(--card-yellow);
     padding-left: 12px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Subtítulo das Seções */
 .section-subtitle {
-    color: #374151;
+    color: #e5e7eb;
     margin-bottom: 30px;
     font-size: 14px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================================
@@ -283,7 +301,7 @@ nav ul li a.active {
     transition: all 0.3s ease;
 }
 
-.filter-btn:hover, 
+.filter-btn:hover,
 .filter-btn.active {
     background: #111827;
     color: var(--card-yellow);
@@ -294,12 +312,13 @@ nav ul li a.active {
    ============================================================
    Estrutura dos cartões de exposição dos aparelhos celulares.
    ============================================================ */
-.grid, 
-.grid-container, 
-#produtos-grid, 
+.grid,
+.grid-container,
+#produtos-grid,
 #destaques-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais no computador */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas iguais no computador */
     gap: 30px;
     max-width: 1300px;
     margin: 0 auto;
@@ -341,17 +360,33 @@ nav ul li a.active {
     z-index: 10;
 }
 
-.badge-promocao { background: #dc2626; color: #ffffff; }
-.badge-seminovo { background: #f3c614; color: #000000; }
-.badge-lacrado  { background: #000000; color: #ffffff; border: 1px solid #f3c614; }
+.badge-promocao {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.badge-seminovo {
+    background: #f3c614;
+    color: #000000;
+}
+
+.badge-lacrado {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #f3c614;
+}
 
 /* Imagem do Produto sem Cortes (Formato Proporcional 3:4) */
 .card-img {
     width: 100%;
-    height: 360px;            /* Altura ideal para proporção 3:4 */
-    object-fit: contain;      /* Garante a foto 100% visível sem cortar pontas */
-    background-color: #f8fafc; /* Fundo levemente acinzentado */
-    padding: 10px;            /* Espaçamento interno */
+    height: 360px;
+    /* Altura ideal para proporção 3:4 */
+    object-fit: contain;
+    /* Garante a foto 100% visível sem cortar pontas */
+    background-color: #f8fafc;
+    /* Fundo levemente acinzentado */
+    padding: 10px;
+    /* Espaçamento interno */
     border-bottom: 1px solid #f1f5f9;
 }
 
@@ -420,7 +455,7 @@ nav ul li a.active {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.services-table th, 
+.services-table th,
 .services-table td {
     padding: 18px 20px;
     text-align: left;
@@ -451,9 +486,9 @@ nav ul li a.active {
     gap: 30px;
 }
 
-.contact-info-box, 
-.contact-form, 
-.admin-box, 
+.contact-info-box,
+.contact-form,
+.admin-box,
 .admin-section-box {
     background: #ffffff;
     padding: 30px;
@@ -561,7 +596,8 @@ nav ul li a.active {
 }
 
 .admin-dashboard {
-    display: none; /* Controlado via JS após login */
+    display: none;
+    /* Controlado via JS após login */
 }
 
 .admin-section-box {
@@ -587,9 +623,9 @@ nav ul li a.active {
 .modal {
     display: none;
     position: fixed;
-    top: 0; 
+    top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
@@ -629,8 +665,8 @@ nav ul li a.active {
     transition: color 0.3s;
 }
 
-.close-modal:hover { 
-    color: #000000; 
+.close-modal:hover {
+    color: #000000;
 }
 
 /* ============================================================
@@ -656,14 +692,16 @@ footer {
 }
 
 .dev-credits a {
-    color: #111827; /* Cor escura elegante em vez do azul padrão */
+    color: #111827;
+    /* Cor escura elegante em vez do azul padrão */
     font-weight: 700;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .dev-credits a:hover {
-    color: #b45309; /* Fica num tom destacado quando passa o rato por cima */
+    color: #b45309;
+    /* Fica num tom destacado quando passa o rato por cima */
 }
 
 /* ============================================================
@@ -681,7 +719,8 @@ footer {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    z-index: 9999; /* Garante que fique acima de todos os elementos */
+    z-index: 9999;
+    /* Garante que fique acima de todos os elementos */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
 }
@@ -724,9 +763,10 @@ footer {
 
 /* TABLETS / DISPLAYS MÉDIOS (Até 1024px) */
 @media (max-width: 1024px) {
-    .grid, 
-    .grid-container, 
-    #produtos-grid, 
+
+    .grid,
+    .grid-container,
+    #produtos-grid,
     #destaques-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -747,6 +787,7 @@ footer {
 
 /* SMARTPHONES / TELAS PEQUENAS (Até 640px) */
 @media (max-width: 640px) {
+
     /* 1. Topo (Header) com Logo na Esquerda e Hambúrguer na Extrema Direita */
     header {
         padding: 10px 15px;
@@ -756,7 +797,8 @@ footer {
     }
 
     .brand-logo-img {
-        height: 48px; /* Reduz a altura da logo para não ocupar espaço demais */
+        height: 48px;
+        /* Reduz a altura da logo para não ocupar espaço demais */
     }
 
     /* Força o botão Hambúrguer a aparecer na EXTREMA DIREITA */
@@ -767,9 +809,10 @@ footer {
     }
 
     /* ESCONDE TOTALMENTE A LISTA DO MENU NO MOBILE POR PADRÃO */
-    nav ul, 
+    nav ul,
     nav ul.nav-links {
-        display: none !important; /* Impede que Início, Sobre, etc. fiquem visíveis no topo */
+        display: none !important;
+        /* Impede que Início, Sobre, etc. fiquem visíveis no topo */
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -825,9 +868,9 @@ footer {
     }
 
     /* 3. Grade de Produtos em 1 Coluna */
-    .grid, 
-    .grid-container, 
-    #produtos-grid, 
+    .grid,
+    .grid-container,
+    #produtos-grid,
     #destaques-grid {
         grid-template-columns: 1fr;
         padding: 0 10px;
@@ -846,9 +889,9 @@ footer {
     }
 
     /* 4. Tabela de Serviços Convertida em Cards Empilhados */
-    .services-table, 
-    .services-table tbody, 
-    .services-table tr, 
+    .services-table,
+    .services-table tbody,
+    .services-table tr,
     .services-table td {
         display: block;
         width: 100%;
